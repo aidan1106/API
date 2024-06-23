@@ -1,0 +1,222 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  width: 100%; /* Navbar takes the full width of the screen */
+  background-color: #f1f1f1;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  padding: 10px 20px;
+  display: block;
+  font-weight: bold; /* Make navbar items bold */
+}
+
+nav ul li a:hover, nav ul li a:focus {
+  background-color: #ddd;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Team Name */
+.team-name {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Drivers List */
+#drivers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 60px; /* Adjust margin to avoid overlap with fixed team name */
+}
+
+/* Pagination Controls */
+#pagination-controls {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+#pagination-controls .pagination-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Driver Details */
+#driver-details {
+  text-align: center;
+  margin: 20px;
+}
+
+#driver-details img {
+  width: 300px; /* Increase the image size */
+  height: auto;
+  border-radius: 10px; /* Optional: Keep the border-radius for rounded corners */
+  margin-bottom: 20px; /* Add space below the image */
+}
+
+#driver-details .driver-name {
+  font-weight: bold; /* Make the text bold */
+  font-size: 28px; /* Increase font size for full name */
+  padding-bottom: 10px; /* Add padding below the full name */
+}
+
+#driver-details .driver-info {
+  font-weight: bold; /* Make the text bold */
+  padding: 10px 0; /* Add padding per line of text */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  #drivers {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #drivers ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      margin: 10px 0;
+  }
+
+  #drivers li {
+      list-style-type: none;
+      text-align: center;
+      margin: 10px 0;
+  }
+
+  #drivers li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold; /* Make names bold */
+  }
+
+  #drivers li img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+  }
+
+  #drivers li a:last-child {
+      display: block;
+      margin-top: 5px;
+  }
+
+  .pagination-button-left, .pagination-button-right {
+      width: 60px;  /* Smaller size for mobile */
+      height: 60px; /* Smaller size for mobile */
+  }
+  
+  .pagination-button-left {
+      position: fixed;
+      bottom: 20px; /* Distance from the bottom */
+      left: 10px; /* Distance from the left */
+  }
+  
+  .pagination-button-right {
+      position: fixed;
+      bottom: 20px; /* Distance from the bottom */
+      right: 10px; /* Distance from the right */
+  }
+}
+
+/* Desktop View */
+@media (min-width: 769px) {
+  nav ul li {
+      margin: 0 30px; /* Increase space between navbar items */
+  }
+
+  #drivers {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: nowrap;
+  }
+
+  #drivers ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      margin: 20px 0;
+  }
+
+  #drivers li {
+      list-style-type: none;
+      text-align: center;
+      margin: 0 20px;
+  }
+
+  #drivers li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold; /* Make names bold */
+  }
+
+  #drivers li img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+  }
+
+  #drivers li a:last-child {
+      display: block;
+      margin-top: 5px;
+  }
+
+  .pagination-button-left, .pagination-button-right {
+      width: 100px;  /* Larger size for desktop */
+      height: 100px; /* Larger size for desktop */
+  }
+
+  .pagination-button-left {
+      position: fixed;
+      bottom: 40px; /* Distance from the bottom */
+      left: 10px; /* Distance from the left */
+  }
+
+  .pagination-button-right {
+      position: fixed;
+      bottom: 40px; /* Distance from the bottom */
+      right: 10px; /* Distance from the right */
+  }
+}
