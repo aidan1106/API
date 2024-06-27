@@ -1,16 +1,20 @@
 /**
  * Async function to get the data from the SWAPI api
- * @returns - returns a promise
+ * @param {string[]} urls - array of URLs to fetch data from
+ * @returns {Promise} - returns a promise that resolves to an array of results
  */
-async function getSwapiData(url) {
+async function getSwapiData(urls) {
   try {
-      console.log(`Fetching data from: ${url}`); // Debug log
-      let response = await fetch(url);
-      let character = await response.json();
-      console.log('API Response:', character); // Debug log
-      return character;
+      const fetchPromises = urls.map(url => {
+          console.log(`Fetching data from: ${url}`); // Debug log
+          return fetch(url).then(response => response.json());
+      });
+      const results = await Promise.all(fetchPromises);
+      console.log('API Responses:', results); // Debug log
+      return results;
   } catch (err) {
       console.error("Error: ", err);
+      return [];
   }
 }
 
@@ -21,11 +25,15 @@ let data = [];
 async function init() {
   const domElement = document.getElementById("drivers");
 
+  // Define the URL to fetch
+  const url = "https://api.openf1.org/v1/drivers";
+
   // Fetch data from the API
-  data = await getSwapiData("https://api.openf1.org/v1/drivers");
+  const [driversData] = await getSwapiData([url]);
 
   // Check if data is received
-  if (data.length > 0) {
+  if (driversData.length > 0) {
+      data = driversData;
       renderPage();
   } else {
       // If no data, display a message
